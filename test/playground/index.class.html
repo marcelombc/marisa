@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>marisa class example</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="../../lib/marisa.class.js"></script>
+    <style>
+        html, body {
+            margin: 0;
+        }
+    </style>
+  </head>
+  <body>
+    <script>
+
+        Person = marisa.Class({
+            initialize: function (name, age) {
+                this._name = name;
+                this._age = age;
+            },
+
+            getName: function () {
+                return this._name;
+            },
+
+            getAge: function () {
+                return this._age;
+            }
+        });
+
+        Employee = marisa.Class(Person, {
+            initialize: function (name, age, position) {
+                Employee.$super(this, 'initialize', [name, age]);
+
+                this._position = position;
+            },
+
+            getPosition: function () {
+                return this._position;
+            }
+        });
+
+        Developer = marisa.Class(Employee, {
+            initialize: function (name, age) {
+                Developer.$super(this, 'initialize', [name, age, 'Developer']);
+            }
+        });
+
+        var marcelo = new Developer('Marcelo', 29);
+        console.log('Name: ' + marcelo.getName());
+        console.log('Age: ' + marcelo.getAge());
+        console.log('Position: ' + marcelo.getPosition());
+
+    </script>
+  </body>
+</html>
