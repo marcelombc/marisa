@@ -1,0 +1,11 @@
+{
+  "name": "marisa",
+  "version": "0.0.1",
+  "scripts": {
+    "test": "testem ci"
+  },
+  "private": false,
+  "devDependencies": {
+    "testem": "~0.2.77"
+  }
+}
